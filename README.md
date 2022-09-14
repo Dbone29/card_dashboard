@@ -11,29 +11,22 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Dynamic dashboard widget that allows your users to create their own layouts. Moving around is supported.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+This dashboard can be thought of as a dynamic grid. Your users can create their own layouts.
+This Package was developed for a Project of mine, but everyone can use it.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Import Package to your Project. Example Usages you can look up at GitHub
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Examples can you find at GitHub.
 
-```dart
-const like = 'sample';
-```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This version is the first version of the package. In the near future it will be further developed and more functionalities will be added.
