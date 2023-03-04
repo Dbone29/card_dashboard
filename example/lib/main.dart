@@ -1,4 +1,5 @@
-import 'package:card_dashboard/card_dashboard.dart';
+import 'package:card_dashboard/widgets/cards/dashboard_card_data.dart';
+import 'package:card_dashboard/widgets/dashboard/dashboard_grid.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,19 +31,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<DashboardDraggableCard> cards = [
-    DashboardDraggableCard(
-      x: 2,
-      y: 3,
+  bool editMode = false;
+
+  List<DashboardCardData> cards = [
+    DashboardCardData(
+      backgroundColor: Colors.amber,
       child: Container(
-        color: Colors.blue,
-      ),
-    ),
-    DashboardDraggableCard(
-      x: 3,
-      y: 1,
-      child: Container(
-        color: Colors.amber,
+        color: Colors.grey,
       ),
     ),
   ];
@@ -53,13 +48,48 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: CardDashboard(
-        children: cards,
-        onChanged: (value) {
-          setState(() {
-            cards = value;
-          });
-        },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      cards.add(DashboardCardData(
+                        backgroundColor: Colors.amber,
+                        child: Container(
+                          color: Colors.grey,
+                        ),
+                      ));
+                    });
+                  },
+                  child: const Text('add card'),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      editMode = !editMode;
+                    });
+                  },
+                  child: Text(editMode ? 'View' : 'Edit'),
+                ),
+              ],
+            ),
+          ),
+          DashboardGrid(
+            editMode: editMode,
+            cards: cards,
+            onCardListChanged: (newCards) {
+              setState(() {
+                cards = newCards;
+              });
+            },
+          ),
+        ],
       ),
     );
   }
